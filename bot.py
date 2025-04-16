@@ -34,7 +34,7 @@ RADHIKA = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN
 
 @RADHIKA.on_message(filters.command("start") & filters.private)
 async def start_command(client, message: Message):
-    await message.reply_text("Hey! Main ek learning chatbot hoon. Mujhe message bhejo ya reply mein jawaab do, main seekh jaunga!")
+    await message.reply_text("Hey! Main Nikku ka setting hu , Friend")
 
 @RADHIKA.on_message(filters.all & ~filters.bot)
 async def chatbot_handler(client, message: Message):

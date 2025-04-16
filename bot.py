@@ -103,3 +103,6 @@ async def chatbot_handler(client, message: Message):
                 logger.info("Learned new word-response pair.")
             except Exception as e:
                 logger.error(f"Error learning new response: {e}")
+
+if __name__ == "__main__":
+    RADHIKA.run()

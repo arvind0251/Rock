@@ -7,7 +7,7 @@ from pyrogram.types import Message
 from pyrogram.enums import ChatAction
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from config import API_ID, API_HASH, BOT_TOKEN, MONGO_URL, IMG, STICKER, EMOJIOS
+from config import API_ID, API_HASH, BOT_TOKEN, MONGO_URL, IMG, EMOJIOS
 
 # Logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -51,11 +51,8 @@ async def chatbot_handler(client, message: Message):
         if responses:
             response = random.choice(responses)
             try:
-                if response["check"] == "sticker":
-                    await message.reply_sticker(response["text"])
-                else:
-                    emoji = random.choice(EMOJIOS)
-                    await message.reply_text(f"{emoji} {response['text']}")
+                emoji = random.choice(EMOJIOS)
+                await message.reply_text(f"{emoji} {response['text']}")
             except Exception as e:
                 logger.error(f"Send error: {e}")
     else:
@@ -65,28 +62,19 @@ async def chatbot_handler(client, message: Message):
             if responses:
                 response = random.choice(responses)
                 try:
-                    if response["check"] == "sticker":
-                        await message.reply_sticker(response["text"])
-                    else:
-                        emoji = random.choice(EMOJIOS)
-                        await message.reply_text(f"{emoji} {response['text']}")
+                    emoji = random.choice(EMOJIOS)
+                    await message.reply_text(f"{emoji} {response['text']}")
                 except Exception as e:
                     logger.error(f"Send error: {e}")
         else:
             try:
-                if message.text:
+                if message.text and reply.text:
                     await word_db.insert_one({
                         "word": reply.text.lower().strip(),
                         "text": message.text,
                         "check": "text"
                     })
-                elif message.sticker:
-                    await word_db.insert_one({
-                        "word": reply.text.lower().strip(),
-                        "text": message.sticker.file_id,
-                        "check": "sticker"
-                    })
-                logger.info("Learned a new response.")
+                    logger.info("Learned a new response.")
             except Exception as e:
                 logger.error(f"Learning error: {e}")
 

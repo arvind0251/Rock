@@ -3,14 +3,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_ID = int(getenv("API_ID", "21803165"))
-API_HASH = getenv("API_HASH", "05e5e695feb30e25bef47484cc006da7")
-BOT_TOKEN = getenv("BOT_TOKEN", "7638229482:AAE_RJ_ZF192RuuHd0HOVI509ZaTVc-h-Qg")
-OWNER_ID = int(getenv("OWNER_ID", "7403621976"))
-MONGO_URL = getenv("MONGO_URL", "mongodb+srv://Yash_607:Yash_607@cluster0.r3s9sbo.mongodb.net/?retryWrites=true&w=majority")
-SUPPORT_GRP = getenv("SUPPORT_GRP", "+OL6jdTL7JAJjYzVl")
-UPDATE_CHNL = getenv("UPDATE_CHNL", "BABY09_WORLD")
-OWNER_USERNAME = getenv("OWNER_USERNAME", "UTTAM470")
+API_ID = int(getenv("API_ID", "21552265"))
+API_HASH = getenv("API_HASH", "1c971ae7e62cc416ca977e040e700d09")
+BOT_TOKEN = getenv("BOT_TOKEN", "7046682256:AAH4n54HKGBgE35kw8V38SAKILeJNYPcwI4")
+OWNER_ID = int(getenv("OWNER_ID", "7408008545"))
+MONGO_URL = getenv("MONGO_URL", "mongodb+srv://KARTIK:KARTIK.23@kartik.flltt.mongodb.net/?retryWrites=true&w=majority&appName=KARTIK")
+SUPPORT_GRP = getenv("SUPPORT_GRP", "RU_DRA_098")
+UPDATE_CHNL = getenv("UPDATE_CHNL", "RU_DRA_098")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "RU_DRA_65")
 
 # Random Start Images
 IMG = [
